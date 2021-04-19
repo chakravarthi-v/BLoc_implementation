@@ -11,6 +11,7 @@ class MovieApiProvider {
     print("entered");
     final response = await client.get(Uri.parse("http://api.themoviedb.org/3/movie/popular?api_key=${_apiKey}"));
     print(response.body.toString());
+    print(response.statusCode);
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON
       return ItemModel.fromJson(json.decode(response.body));
